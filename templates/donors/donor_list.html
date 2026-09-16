@@ -1,0 +1,395 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+    Find Blood Donors
+{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <!-- Page Header -->
+    <div class="text-center mb-5">
+        <h1 class="fw-bold text-danger">
+            <i class="bi bi-search"></i>
+            Find Blood Donors
+        </h1>
+
+        <p class="text-muted">
+            Search for suitable blood donors by blood group, location and availability.
+        </p>
+    </div>
+
+
+    <!-- Search & Filter -->
+    <div class="card shadow-sm border-0 mb-5">
+
+        <div class="card-body p-4">
+
+            <h5 class="fw-bold mb-4">
+                <i class="bi bi-funnel-fill text-danger"></i>
+                Search & Filter Donors
+            </h5>
+
+            <form method="get">
+
+                <div class="row g-3">
+
+                    <!-- Blood Group -->
+                    <div class="col-md-4">
+
+                        <label
+                            for="blood_group"
+                            class="form-label fw-semibold"
+                        >
+                            Blood Group
+                        </label>
+
+                        <select
+                            name="blood_group"
+                            id="blood_group"
+                            class="form-select"
+                        >
+
+                            <option value="">
+                                All Blood Groups
+                            </option>
+
+                            {% for value, label in blood_groups %}
+
+                                <option
+                                    value="{{ value }}"
+                                    {% if blood_group == value %}
+                                        selected
+                                    {% endif %}
+                                >
+                                    {{ label }}
+                                </option>
+
+                            {% endfor %}
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Location -->
+                    <div class="col-md-4">
+
+                        <label
+                            for="location"
+                            class="form-label fw-semibold"
+                        >
+                            Location
+                        </label>
+
+                        <input
+                            type="text"
+                            name="location"
+                            id="location"
+                            class="form-control"
+                            placeholder="Enter location"
+                            value="{{ location }}"
+                        >
+
+                    </div>
+
+
+                    <!-- Availability -->
+                    <div class="col-md-4">
+
+                        <label
+                            for="availability"
+                            class="form-label fw-semibold"
+                        >
+                            Availability
+                        </label>
+
+                        <select
+                            name="availability"
+                            id="availability"
+                            class="form-select"
+                        >
+
+                            <option value="">
+                                All
+                            </option>
+
+                            {% for value, label in availability_choices %}
+
+                                <option
+                                    value="{{ value }}"
+                                    {% if availability == value %}
+                                        selected
+                                    {% endif %}
+                                >
+                                    {{ label }}
+                                </option>
+
+                            {% endfor %}
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Buttons -->
+                <div class="mt-4 d-flex gap-2">
+
+                    <button
+                        type="submit"
+                        class="btn btn-danger"
+                    >
+                        <i class="bi bi-search"></i>
+                        Search Donors
+                    </button>
+
+                    <a
+                        href="{% url 'donor_list' %}"
+                        class="btn btn-outline-secondary"
+                    >
+                        <i class="bi bi-arrow-clockwise"></i>
+                        Reset
+                    </a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- Result Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+
+            <h4 class="fw-bold mb-1">
+                Available Donors
+            </h4>
+
+            <p class="text-muted mb-0">
+                {{ donors|length }} donor{{ donors|length|pluralize }} found
+            </p>
+
+        </div>
+
+        {% if user.is_authenticated %}
+
+            <a
+                href="{% url 'donor_create' %}"
+                class="btn btn-danger"
+            >
+                <i class="bi bi-person-plus-fill"></i>
+                Become a Donor
+            </a>
+
+        {% endif %}
+
+    </div>
+
+
+    <!-- Donor Cards -->
+
+    {% if donors %}
+
+        <div class="row g-4">
+
+            {% for donor in donors %}
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="card h-100 shadow-sm border-0 donor-card">
+
+                        <!-- Profile Image -->
+                        <div class="text-center pt-4">
+
+                            {% if donor.profile_picture %}
+
+                                <img
+                                    src="{{ donor.profile_picture.url }}"
+                                    alt="{{ donor.full_name }}"
+                                    class="rounded-circle"
+                                    width="100"
+                                    height="100"
+                                    style="object-fit: cover;"
+                                >
+
+                            {% else %}
+
+                                <div
+                                    class="rounded-circle bg-danger text-white d-inline-flex align-items-center justify-content-center"
+                                    style="width: 100px; height: 100px;"
+                                >
+                                    <i
+                                        class="bi bi-person-fill"
+                                        style="font-size: 3rem;"
+                                    ></i>
+                                </div>
+
+                            {% endif %}
+
+                        </div>
+
+
+                        <div class="card-body text-center">
+
+                            <!-- Name -->
+                            <h5 class="fw-bold mb-2">
+                                {{ donor.full_name }}
+                            </h5>
+
+
+                            <!-- Blood Group -->
+                            <span class="badge bg-danger fs-6 mb-3">
+                                <i class="bi bi-droplet-fill"></i>
+                                {{ donor.blood_group }}
+                            </span>
+
+
+                            <!-- Information -->
+                            <div class="text-start mt-3">
+
+                                <p class="mb-2">
+                                    <i class="bi bi-geo-alt-fill text-danger"></i>
+                                    <strong>Location:</strong>
+                                    {{ donor.location }}
+                                </p>
+
+                                <p class="mb-2">
+                                    <i class="bi bi-telephone-fill text-danger"></i>
+                                    <strong>Phone:</strong>
+                                    {{ donor.phone }}
+                                </p>
+
+                                <p class="mb-2">
+
+                                    <i class="bi bi-circle-fill
+                                    {% if donor.availability == 'Available' %}
+                                        text-success
+                                    {% else %}
+                                        text-secondary
+                                    {% endif %}
+                                    "></i>
+
+                                    <strong>Availability:</strong>
+
+                                    {% if donor.availability == 'Available' %}
+
+                                        <span class="text-success fw-semibold">
+                                            Available
+                                        </span>
+
+                                    {% else %}
+
+                                        <span class="text-secondary fw-semibold">
+                                            Not Available
+                                        </span>
+
+                                    {% endif %}
+
+                                </p>
+
+
+                                {% if donor.last_donation_date %}
+
+                                    <p class="mb-2">
+                                        <i class="bi bi-calendar-heart text-danger"></i>
+                                        <strong>Last Donation:</strong>
+                                        {{ donor.last_donation_date }}
+                                    </p>
+
+                                {% endif %}
+
+                            </div>
+
+
+                            <!-- Description -->
+                            {% if donor.description %}
+
+                                <p class="text-muted small mt-3">
+                                    {{ donor.description|truncatewords:20 }}
+                                </p>
+
+                            {% endif %}
+
+
+                            <!-- Owner Actions -->
+                            {% if donor.user == user %}
+
+                                <div class="mt-4 pt-3 border-top">
+
+                                    <a
+                                        href="{% url 'donor_edit' %}"
+                                        class="btn btn-sm btn-outline-primary"
+                                    >
+                                        <i class="bi bi-pencil"></i>
+                                        Edit
+                                    </a>
+
+                                    <a
+                                        href="{% url 'donor_delete' %}"
+                                        class="btn btn-sm btn-outline-danger"
+                                    >
+                                        <i class="bi bi-trash"></i>
+                                        Delete
+                                    </a>
+
+                                </div>
+
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    {% else %}
+
+        <!-- Empty State -->
+
+        <div class="card border-0 shadow-sm">
+
+            <div class="card-body text-center py-5">
+
+                <i
+                    class="bi bi-search-heart text-danger"
+                    style="font-size: 4rem;"
+                ></i>
+
+                <h4 class="fw-bold mt-3">
+                    No Donors Found
+                </h4>
+
+                <p class="text-muted">
+                    No donor matches your selected search criteria.
+                </p>
+
+                <a
+                    href="{% url 'donor_list' %}"
+                    class="btn btn-danger"
+                >
+                    <i class="bi bi-arrow-clockwise"></i>
+                    Clear Filters
+                </a>
+
+            </div>
+
+        </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}
+

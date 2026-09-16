@@ -1,0 +1,554 @@
+/* =========================================================
+   BLOOD DONATE & REQUEST SYSTEM
+   Main Stylesheet
+   ========================================================= */
+
+
+/* =========================
+   GLOBAL
+   ========================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+a {
+    transition: all 0.2s ease;
+}
+
+.text-danger {
+    color: #dc3545 !important;
+}
+
+
+/* =========================
+   NAVBAR
+   ========================= */
+
+.navbar {
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.navbar-brand {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+.navbar-brand i {
+    margin-right: 5px;
+}
+
+.navbar .nav-link {
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.navbar .nav-link:hover {
+    opacity: 0.8;
+}
+
+.navbar .nav-link i {
+    margin-right: 4px;
+}
+
+.navbar .btn {
+    border-radius: 8px;
+}
+
+
+/* =========================
+   DROPDOWN
+   ========================= */
+
+.dropdown-menu {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    padding: 8px;
+}
+
+.dropdown-item {
+    border-radius: 6px;
+    padding: 9px 12px;
+    transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background-color: #f8f9fa;
+}
+
+.dropdown-item i {
+    margin-right: 7px;
+}
+
+
+/* =========================
+   BUTTONS
+   ========================= */
+
+.btn {
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #bb2d3b;
+    border-color: #b02a37;
+    transform: translateY(-1px);
+}
+
+.btn-outline-danger:hover {
+    transform: translateY(-1px);
+}
+
+
+/* =========================
+   HERO SECTION
+   ========================= */
+
+.hero-section {
+    background-color: #ffffff;
+    padding: 80px 0;
+}
+
+.hero-section h1 {
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.hero-section p {
+    line-height: 1.7;
+}
+
+.hero-icon {
+    width: 260px;
+    height: 260px;
+}
+
+
+/* =========================
+   HOME PAGE
+   ========================= */
+
+.home-feature-card {
+    border: none;
+    border-radius: 15px;
+    transition: all 0.25s ease;
+}
+
+.home-feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.10);
+}
+
+.home-feature-icon {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-feature-icon i {
+    font-size: 32px;
+}
+
+
+/* =========================
+   CARDS
+   ========================= */
+
+.card {
+    border-radius: 12px;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.10) !important;
+}
+
+.card-header {
+    border-top-left-radius: 12px !important;
+    border-top-right-radius: 12px !important;
+}
+
+
+/* =========================
+   DASHBOARD
+   ========================= */
+
+.dashboard-header h2 {
+    font-weight: 700;
+}
+
+.dashboard-stat-card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.dashboard-stat-card .card-body {
+    padding: 24px;
+}
+
+.dashboard-stat-icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashboard-stat-icon i {
+    font-size: 25px;
+}
+
+.quick-action-card {
+    border: none;
+    border-radius: 12px;
+}
+
+.quick-action-card i {
+    font-size: 40px;
+}
+
+
+/* =========================
+   ALERTS / MESSAGES
+   ========================= */
+
+.alert {
+    border-radius: 10px;
+}
+
+.alert-danger {
+    border-color: rgba(220, 53, 69, 0.2);
+}
+
+
+/* =========================
+   FORMS
+   ========================= */
+
+.form-control,
+.form-select {
+    border-radius: 8px;
+    padding: 10px 12px;
+    border: 1px solid #ced4da;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.15);
+}
+
+.form-label {
+    font-weight: 600;
+}
+
+
+/* =========================
+   FOOTER
+   ========================= */
+
+footer {
+    margin-top: auto;
+}
+
+footer a {
+    transition: color 0.2s ease;
+}
+
+footer a:hover {
+    color: #ffffff !important;
+}
+
+footer h5,
+footer h6 {
+    font-weight: 600;
+}
+
+
+/* =========================
+   BADGES
+   ========================= */
+
+.badge {
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+
+/* =========================
+   TABLES
+   ========================= */
+
+.table {
+    vertical-align: middle;
+}
+
+.table thead th {
+    font-weight: 600;
+}
+
+.table-responsive {
+    border-radius: 10px;
+}
+
+
+/* =========================
+   PROFILE
+   ========================= */
+
+.profile-image {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #dc3545;
+}
+
+.profile-placeholder {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8d7da;
+    color: #dc3545;
+    font-size: 50px;
+}
+
+
+/* =========================
+   DONOR CARDS
+   ========================= */
+
+.donor-card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.donor-card .donor-name {
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.donor-blood-group {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #dc3545;
+}
+
+
+/* =========================
+   BLOOD REQUEST CARDS
+   ========================= */
+
+.request-card {
+    border: none;
+    border-radius: 12px;
+}
+
+.request-card .blood-group {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #dc3545;
+}
+
+.request-status {
+    font-size: 0.85rem;
+}
+
+
+/* =========================
+   PAGINATION
+   ========================= */
+
+.pagination .page-link {
+    color: #dc3545;
+    border-radius: 6px;
+    margin: 0 2px;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: #ffffff;
+}
+
+.pagination .page-link:hover {
+    background-color: #f8d7da;
+}
+
+
+/* =========================
+   EMPTY STATE
+   ========================= */
+
+.empty-state {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.empty-state i {
+    font-size: 60px;
+    color: #dc3545;
+}
+
+.empty-state h4 {
+    margin-top: 20px;
+    font-weight: 700;
+}
+
+
+/* =========================
+   SECTION HEADINGS
+   ========================= */
+
+.section-title {
+    font-weight: 700;
+}
+
+.section-subtitle {
+    color: #6c757d;
+}
+
+
+/* =========================
+   CTA SECTION
+   ========================= */
+
+.cta-section {
+    background-color: #dc3545;
+    color: #ffffff;
+    padding: 60px 0;
+}
+
+.cta-section h2 {
+    font-weight: 700;
+}
+
+
+/* =========================
+   LOADING / UTILITIES
+   ========================= */
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.object-fit-cover {
+    object-fit: cover;
+}
+
+.rounded-custom {
+    border-radius: 12px;
+}
+
+
+/* =========================
+   RESPONSIVE DESIGN
+   ========================= */
+
+@media (max-width: 991.98px) {
+
+    .navbar .btn {
+        margin-top: 8px;
+    }
+
+    .hero-section {
+        padding: 60px 0;
+    }
+
+    .hero-icon {
+        width: 220px;
+        height: 220px;
+    }
+}
+
+
+@media (max-width: 767.98px) {
+
+    .display-4 {
+        font-size: 2.4rem;
+    }
+
+    .hero-section {
+        padding: 45px 0;
+        text-align: center;
+    }
+
+    .hero-section .btn {
+        margin-bottom: 10px;
+    }
+
+    .hero-icon {
+        width: 190px;
+        height: 190px;
+    }
+
+    .dashboard-stat-card {
+        margin-bottom: 10px;
+    }
+
+    footer {
+        text-align: center;
+    }
+}
+
+
+@media (max-width: 575.98px) {
+
+    .display-4 {
+        font-size: 2rem;
+    }
+
+    .lead {
+        font-size: 1rem;
+    }
+
+    .hero-icon {
+        width: 160px;
+        height: 160px;
+    }
+
+    .hero-icon i {
+        font-size: 70px !important;
+    }
+
+    .btn-lg {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+}

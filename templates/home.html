@@ -1,0 +1,301 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Home - Blood Donate & Request System
+{% endblock %}
+
+{% block content %}
+
+<!-- ================= HERO SECTION ================= -->
+
+<section class="py-5 bg-white">
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <!-- Hero Text -->
+            <div class="col-lg-7">
+
+                <span class="badge bg-danger-subtle text-danger px-3 py-2 mb-3">
+                    <i class="bi bi-heart-pulse-fill"></i>
+                    Donate Blood • Save Lives
+                </span>
+
+                <h1 class="display-4 fw-bold mb-3">
+                    Find a Donor.
+                    <span class="text-danger">Save a Life.</span>
+                </h1>
+
+                <p class="lead text-muted mb-4">
+                    Connect with blood donors and people in need.
+                    Our platform makes it easier to find suitable
+                    blood donors based on blood group and location.
+                </p>
+
+                {% if user.is_authenticated %}
+
+                    <a
+                        href="{% url 'dashboard' %}"
+                        class="btn btn-danger btn-lg px-4 me-2"
+                    >
+                        <i class="bi bi-speedometer2"></i>
+                        Dashboard
+                    </a>
+
+                    <a
+                        href="#features"
+                        class="btn btn-outline-danger btn-lg px-4"
+                    >
+                        Explore
+                    </a>
+
+                {% else %}
+
+                    <a
+                        href="{% url 'register' %}"
+                        class="btn btn-danger btn-lg px-4 me-2"
+                    >
+                        <i class="bi bi-person-plus"></i>
+                        Become a Donor
+                    </a>
+
+                    <a
+                        href="{% url 'login' %}"
+                        class="btn btn-outline-danger btn-lg px-4"
+                    >
+                        <i class="bi bi-box-arrow-in-right"></i>
+                        Login
+                    </a>
+
+                {% endif %}
+
+            </div>
+
+            <!-- Hero Icon -->
+            <div class="col-lg-5 text-center mt-5 mt-lg-0">
+
+                <div
+                    class="bg-danger rounded-circle d-inline-flex
+                           align-items-center justify-content-center
+                           shadow"
+                    style="width: 260px; height: 260px;"
+                >
+
+                    <i
+                        class="bi bi-heart-pulse-fill text-white"
+                        style="font-size: 110px;"
+                    ></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ================= FEATURES ================= -->
+
+<section id="features" class="py-5">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="text-danger fw-semibold">
+                OUR SERVICES
+            </span>
+
+            <h2 class="fw-bold mt-2">
+                How We Can Help
+            </h2>
+
+            <p class="text-muted">
+                A simple platform for blood donors and patients.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            <!-- Find Donor -->
+            <div class="col-md-4">
+
+                <div class="card border-0 shadow-sm h-100">
+
+                    <div class="card-body text-center p-4">
+
+                        <div
+                            class="bg-danger-subtle text-danger
+                                   rounded-circle d-inline-flex
+                                   align-items-center justify-content-center"
+                            style="width: 75px; height: 75px;"
+                        >
+                            <i
+                                class="bi bi-search-heart"
+                                style="font-size: 32px;"
+                            ></i>
+                        </div>
+
+                        <h4 class="fw-bold mt-4">
+                            Find Donors
+                        </h4>
+
+                        <p class="text-muted">
+                            Search for suitable blood donors
+                            by blood group, location and availability.
+                        </p>
+
+                        <a
+                            href="#"
+                            class="btn btn-outline-danger"
+                        >
+                            Find Donors
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Request Blood -->
+            <div class="col-md-4">
+
+                <div class="card border-0 shadow-sm h-100">
+
+                    <div class="card-body text-center p-4">
+
+                        <div
+                            class="bg-danger-subtle text-danger
+                                   rounded-circle d-inline-flex
+                                   align-items-center justify-content-center"
+                            style="width: 75px; height: 75px;"
+                        >
+                            <i
+                                class="bi bi-droplet-half"
+                                style="font-size: 32px;"
+                            ></i>
+                        </div>
+
+                        <h4 class="fw-bold mt-4">
+                            Request Blood
+                        </h4>
+
+                        <p class="text-muted">
+                            Create a blood request with patient,
+                            hospital and blood requirement details.
+                        </p>
+
+                        <a
+                            href="{% if user.is_authenticated %}#{% else %}{% url 'login' %}{% endif %}"
+                            class="btn btn-outline-danger"
+                        >
+                            Create Request
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Donate -->
+            <div class="col-md-4">
+
+                <div class="card border-0 shadow-sm h-100">
+
+                    <div class="card-body text-center p-4">
+
+                        <div
+                            class="bg-danger-subtle text-danger
+                                   rounded-circle d-inline-flex
+                                   align-items-center justify-content-center"
+                            style="width: 75px; height: 75px;"
+                        >
+                            <i
+                                class="bi bi-heart-fill"
+                                style="font-size: 32px;"
+                            ></i>
+                        </div>
+
+                        <h4 class="fw-bold mt-4">
+                            Donate Blood
+                        </h4>
+
+                        <p class="text-muted">
+                            Register as a donor and help someone
+                            in need of life-saving blood.
+                        </p>
+
+                        <a
+                            href="{% if user.is_authenticated %}#{% else %}{% url 'register' %}{% endif %}"
+                            class="btn btn-outline-danger"
+                        >
+                            Get Started
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CTA ================= -->
+
+<section class="py-5 bg-danger text-white">
+
+    <div class="container text-center">
+
+        <i
+            class="bi bi-heart-pulse-fill"
+            style="font-size: 45px;"
+        ></i>
+
+        <h2 class="fw-bold mt-3">
+            Every Drop Can Make a Difference
+        </h2>
+
+        <p class="lead mb-4">
+            Become a blood donor today and help save lives.
+        </p>
+
+        {% if not user.is_authenticated %}
+
+            <a
+                href="{% url 'register' %}"
+                class="btn btn-light btn-lg text-danger fw-semibold px-4"
+            >
+                <i class="bi bi-person-plus"></i>
+                Register Now
+            </a>
+
+        {% else %}
+
+            <a
+                href="{% url 'dashboard' %}"
+                class="btn btn-light btn-lg text-danger fw-semibold px-4"
+            >
+                <i class="bi bi-speedometer2"></i>
+                Go to Dashboard
+            </a>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+{% endblock %}

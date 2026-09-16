@@ -1,0 +1,100 @@
+```html
+{% extends 'base.html' %}
+
+{% block title %}
+    Delete Donor Profile - Blood Donate & Request System
+{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <div class="card border-0 shadow-sm">
+
+                <div class="card-body p-4 text-center">
+
+                    <div class="mb-3">
+
+                        <i
+                            class="bi bi-exclamation-triangle-fill text-danger"
+                            style="font-size: 60px;"
+                        ></i>
+
+                    </div>
+
+
+                    <h3 class="fw-bold">
+                        Delete Donor Profile?
+                    </h3>
+
+
+                    <p class="text-muted">
+
+                        Are you sure you want to delete your donor profile?
+
+                    </p>
+
+
+                    <div class="alert alert-warning">
+
+                        <strong>
+                            {{ donor.full_name }}
+                        </strong>
+
+                        <br>
+
+                        Blood Group:
+                        <strong>
+                            {{ donor.blood_group }}
+                        </strong>
+
+                    </div>
+
+
+                    <form method="post">
+
+                        {% csrf_token %}
+
+                        <div class="d-flex justify-content-center gap-2">
+
+                            <button
+                                type="submit"
+                                class="btn btn-danger"
+                            >
+
+                                <i class="bi bi-trash"></i>
+
+                                Yes, Delete
+
+                            </button>
+
+
+                            <a
+                                href="{% url 'donor_list' %}"
+                                class="btn btn-outline-secondary"
+                            >
+
+                                Cancel
+
+                            </a>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
+```

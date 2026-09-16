@@ -1,0 +1,83 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+    Delete Blood Request
+{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6">
+
+            <div class="card border-0 shadow-sm">
+
+                <div class="card-body text-center p-5">
+
+                    <i
+                        class="bi bi-exclamation-triangle-fill text-danger"
+                        style="font-size: 4rem;"
+                    ></i>
+
+
+                    <h3 class="fw-bold mt-3">
+                        Delete Blood Request?
+                    </h3>
+
+
+                    <p class="text-muted">
+                        Are you sure you want to delete the blood request
+                        for
+                        <strong>
+                            {{ blood_request.patient_name }}
+                        </strong>
+                        ?
+                    </p>
+
+
+                    <p class="text-muted small">
+                        This action cannot be undone.
+                    </p>
+
+
+                    <form method="post">
+
+                        {% csrf_token %}
+
+                        <div class="d-flex justify-content-center gap-2">
+
+                            <button
+                                type="submit"
+                                class="btn btn-danger"
+                            >
+                                <i class="bi bi-trash"></i>
+                                Yes, Delete
+                            </button>
+
+                            <a
+                                href="{% url 'blood_request_list' %}"
+                                class="btn btn-outline-secondary"
+                            >
+                                <i class="bi bi-arrow-left"></i>
+                                Cancel
+                            </a>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
+
