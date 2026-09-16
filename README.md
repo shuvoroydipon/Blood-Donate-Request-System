@@ -546,22 +546,5 @@ The purpose of this project is to demonstrate how a Django web application can b
 
 ````
 
-### এরপর GitHub-এ push করুন
 
-README save করার পর VS Code Terminal-এ:
-
-```powershell
-git add README.md
-git commit -m "Add project README"
-git pull --rebase origin main
-git push origin main
-````
-
-⚠️ **একটা বিষয় খেয়াল রাখবেন:** README-এর GitHub URL আপনার actual repository অনুযায়ী দেওয়া হয়েছে:
-
-```text
-https://github.com/shuvoroydipon/Blood-Donate-Request-System.git
-```
-
-এখন README সহ project GitHub-এ সুন্দরভাবে থাকবে।
 
