@@ -1,0 +1,31 @@
+
+/* Blood Donate & Request System */
+
+body {
+min-height: 100vh;
+}
+
+.navbar-brand {
+letter-spacing: 0.3px;
+}
+
+.card {
+border-radius: 12px;
+}
+
+.btn {
+border-radius: 8px;
+}
+
+.form-control,
+.form-select {
+border-radius: 8px;
+}
+
+footer {
+margin-top: auto;
+}
+
+.text-danger {
+color: #dc3545 !important;
+}
